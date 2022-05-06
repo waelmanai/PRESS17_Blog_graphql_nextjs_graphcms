@@ -6,6 +6,9 @@ import { getPosts } from '../services'
 
 
 export default function Home({ posts }) {
+
+  console.log("posts: ", posts);
+
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -18,7 +21,7 @@ export default function Home({ posts }) {
           {
             posts.sort((a,b)=>{
               return new Date(b.node.createdAt) - new Date(a.node.createdAt);
-            }).map( (post) => (<PostCard post={post.node} key={post.title} />) )
+            }).map( (post, index) => (<PostCard post={post.node} key={index} />) )
           }
         </div>
         <div className='lg:col-span-4 col-span-1'>
