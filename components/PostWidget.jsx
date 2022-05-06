@@ -6,16 +6,16 @@ import { getRecentPosts, getSimilarPosts } from '../services';
 const PostWidget = ({categories, slug}) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
   useEffect(() => {
-    if(slug){
-      getSimilarPosts(categories, slug)
-        .then((result) => setRelatedPosts(result))
+    if (slug) {
+      getSimilarPosts(categories, slug).then((result) => {
+        setRelatedPosts(result);
+      });
     } else {
-      getRecentPosts()
-        .then((result) => setRelatedPosts(result))
+      getRecentPosts().then((result) => {
+        setRelatedPosts(result);
+      });
     }
-  }, [slug])
-  
-  console.log(relatedPosts);
+  }, [slug]);
 
   return (
     <div className='bg-white rounded-lg shadow-lg p-8 mb-8'>
